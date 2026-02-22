@@ -10,6 +10,9 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json()); // parse incoming JSON requests
+
+app.use('/api/auth', require('./routes/auth')); // 👈 add this line
+app.use('/api/todos', require('./routes/todos'));
 // Test route
 app.get('/', (req, res) => {
   res.send('API is running...');
